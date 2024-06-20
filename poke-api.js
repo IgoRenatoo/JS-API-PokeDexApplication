@@ -1,5 +1,4 @@
 const pokeApi = {};
-
 pokeApi.getAll = (offset = 0, limit = 20) => {
   const URL = `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`;
   return fetch(URL)

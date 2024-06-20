@@ -1,22 +1,18 @@
 const pokemonContainer = document.querySelector('#pokemon-container');
 const firstLetterUpper = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
-function pokemonData(pokemon, url){
-  return `<ul style="display: flex; flex-direction: column; padding-left: 20px; gap: 10px;">
-        <div>
-          <label for="nome">Name: </label>
-          <span id="pokemon-name">${pokemon} </span>
-        </div>
-        <div>
-          <label for="type">Type: </label>
-          <span id="pokemon-type"> ${url} </span>
-        </div>
-      </ul>`;
+function pokemonData(pokemon, i){  
+  return `
+    <ul style="display: flex; flex-direction: column; padding-left: 20px; gap: 10px;">
+    <span id="pokemon-name">Nome:${pokemon} </span>
+    <img style="height: 100px" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${i}.svg" alt="">
+    </ul>`;
 }
-  pokeApi.getAll().then((pokemonList) => {
-    for (let i=0; i < pokemonList.length; i++){
-      const pokemonName = firstLetterUpper(pokemonList[i].name);
-      const pokemonUrl = pokemonList[i].url;
-      pokemonContainer.innerHTML += pokemonData(pokemonName, pokemonUrl);
+pokeApi.getAll().then((listApi) => {
+  var pokemonList = [];
+    for (let i=0; i < listApi.length; i++){
+      const pokemonName = firstLetterUpper(listApi[i].name);
+      pokemonList.push(pokemonName);
+      pokemonContainer.innerHTML += pokemonData(pokemonName, i+1);
     }
-  })
+})
