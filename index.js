@@ -1,4 +1,4 @@
-const pokemonContainer = document.querySelector('#pokemon-container');
+const pokemonList = document.querySelector('#pokemonList');
 const firstLetterUpper = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
 function pokemonData(pokemon, i){  
@@ -9,5 +9,5 @@ function pokemonData(pokemon, i){
     </ul>`;
 }
 infoApi.getAllName().then((listApi = []) => {
-  pokemonContainer.innerHTML = listApi.map((value, i) => pokemonData(firstLetterUpper(value.name), i)).join('');
+  pokemonList.innerHTML = listApi.map((value, i) => pokemonData(firstLetterUpper(value.name), i)).join('');
 })
