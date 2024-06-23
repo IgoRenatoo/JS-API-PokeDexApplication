@@ -13,14 +13,16 @@ function infoPokemon(nome, types, height, weight, i ){
   return `
           <ul class="pokemon-data">
           <section>
-          <div >Nome: ${nome} </div>
-          <div id="pokemonType" class="pokemon-type">
-          ${typePokemon}
-          <span>Altura: ${height} cm </span>
-          <span>Peso: ${weight} KG </span>
-          <span>ID: ${i} </span>
+            <div >Nome: ${nome} </div>
+            <div id="pokemonType" class="pokemon-type">
+              ${typePokemon}
+              <span>Altura: ${height} cm </span>
+              <span span>Peso: ${weight} KG </span>
+              <span>ID: ${i} </span>
             </div>
-            <input style="margin: 5px 30px; padding: 2px 3px; border-radius: 7px;" type="button" value="Selecionar">
+            <a href="./pokemon-selected.html">
+            <input id="pokemonSelection" class="pokemon-selection" type="button" value="Selecionar">
+            </a>
           </section>
           <section class="pokemon-img" >
             <img src=" https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${i+1}.svg"
@@ -30,3 +32,4 @@ function infoPokemon(nome, types, height, weight, i ){
 }
 infoApi.getAllName().then((listName = []) => listArea.innerHTML = listName.map((value, i) => 
   infoPokemon(firstLetterUpper(value.name), value.types, value.height, value.weight,  i)).join(''))
+

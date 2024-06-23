@@ -42,6 +42,11 @@ h1 {
   display: flex;
   flex-direction: column;
 }
+.pokemon-selection {
+  margin: 5px 30px;
+  padding: 2px 3px;
+  border-radius: 7px;
+}
 .pokemon-img img {
   width: 100px;
   height: 100px;
