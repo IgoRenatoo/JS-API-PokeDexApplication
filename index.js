@@ -3,8 +3,8 @@ const firstLetterUpper = (string) => string.charAt(0).toUpperCase() + string.sli
 let ID;
 
 function infoPokemon(nome, types, height, weight, i ){
-  let typePokemon;
   height *= 8;
+  let typePokemon;
   if(types.length == 1){    
     typePokemon = `<span>Tipo: ${firstLetterUpper(types[0].type.name)} </span>`
   } else {

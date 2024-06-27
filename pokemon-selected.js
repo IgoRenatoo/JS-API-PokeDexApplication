@@ -1,6 +1,7 @@
 const statusArea = document.querySelector('#statusPokemon');
 const ID = Number(localStorage.getItem('ID'));
-const firstLetterUpper = (string) => string.charAt(0).toUpperCase() + string.slice(1);
+const firstLetterUpper = (string) =>
+  string.split('-').map((value) => value.charAt(0).toUpperCase() + value.slice(1)).join(' ');
 
 function statusPokemon(Nome, Habilidade1, Habilidade2, HP, Attack, Defense, SpecialAttack, SpecialDefense, Speed) {
   return `
@@ -17,8 +18,8 @@ function statusPokemon(Nome, Habilidade1, Habilidade2, HP, Attack, Defense, Spec
         <li>HP: ${HP} </li>
         <li>Attack: ${Attack} </li>
         <li>Defense: ${Defense} </li>
-        <li>Special-Attack: ${SpecialAttack} </li>
-        <li>Special-Defense: ${SpecialDefense} </li>
+        <li>Special Attack: ${SpecialAttack} </li>
+        <li>Special Defense: ${SpecialDefense} </li>
         <li>Speed: ${Speed} </li>
       </ul>
     </section>
