@@ -2,7 +2,7 @@ const infoApi = {};
 
 infoApi.requestUrl = (pokemon) => fetch(pokemon.url).then((response) => response.json())
 
-infoApi.getAllName = (offset = 0, limit = 100) => {
+infoApi.getAllName = (offset = 0, limit = 49) => {
   const URL = `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`;
   return fetch(URL)
       .then((response) => response.json())

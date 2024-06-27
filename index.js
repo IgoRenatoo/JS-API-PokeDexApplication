@@ -1,8 +1,9 @@
 const listArea = document.querySelector('#listArea');
 const firstLetterUpper = (string) => string.charAt(0).toUpperCase() + string.slice(1);
+let ID;
 
 function infoPokemon(nome, types, height, weight, i ){
-  var typePokemon = 0;
+  let typePokemon;
   height *= 8;
   if(types.length == 1){    
     typePokemon = `<span>Tipo: ${firstLetterUpper(types[0].type.name)} </span>`
@@ -19,10 +20,10 @@ function infoPokemon(nome, types, height, weight, i ){
               <span>Altura: ${height} cm </span>
               <span span>Peso: ${weight} KG </span>
               <span>ID: ${i} </span>
-            </div>
+            </div>            
             <a href="./pokemon-selected.html">
-            <input id="pokemonSelection" class="button-global" type="button" value="Selecionar">
-            </a>
+              <input id="pokemonSelection${i}" class="button-global" type="button" onclick="saveID(this.id)" value="Selecionar">
+            </a>            
           </section>
           <section class="pokemon-img" >
             <img src=" https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${i+1}.svg"
@@ -30,6 +31,9 @@ function infoPokemon(nome, types, height, weight, i ){
           </section>
         </li>`;
 }
+function saveID(id){
+  ID = id.charAt(16)+id.charAt(17);
+  localStorage.setItem('ID', ID)
+}
 infoApi.getAllName().then((listName = []) => listArea.innerHTML = listName.map((value, i) => 
   infoPokemon(firstLetterUpper(value.name), value.types, value.height, value.weight,  i)).join(''))
-
