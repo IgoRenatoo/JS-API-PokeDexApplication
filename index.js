@@ -1,10 +1,9 @@
 const listArea = document.querySelector('#listArea');
 const firstLetterUpper = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 let ID;
+let typePokemon;
 
 function infoPokemon(nome, types, height, weight, i ){
-  height *= 8;
-  let typePokemon;
   if(types.length == 1){    
     typePokemon = `<span>Tipo: ${firstLetterUpper(types[0].type.name)} </span>`
   } else {
@@ -17,7 +16,7 @@ function infoPokemon(nome, types, height, weight, i ){
             <div >Nome: ${nome} </div>
             <div id="pokemonType" class="pokemon-type">
               ${typePokemon}
-              <span>Altura: ${height} cm </span>
+              <span>Altura: ${height*8} cm </span>
               <span span>Peso: ${weight} KG </span>
               <span>ID: ${i} </span>
             </div>            

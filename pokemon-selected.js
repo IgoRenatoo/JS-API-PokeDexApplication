@@ -23,9 +23,12 @@ function statusPokemon(Nome, Habilidade1, Habilidade2, HP, Attack, Defense, Spec
         <li>Speed: ${Speed} </li>
       </ul>
     </section>
-    <section>
+    <section class="main-content">
       <img style="width: 200px;"
-        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/${ID+1}.gif" alt="">`
+        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/${ID+1}.gif" alt="">
+    <a href="./index.html">
+      <input class="button-global" type="button" value="Voltar">
+    </a>`
 };
 infoApi.getAllName().then((x = []) => {
   statusArea.innerHTML = statusPokemon(

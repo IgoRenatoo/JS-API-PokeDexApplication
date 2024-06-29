@@ -1,9 +1,6 @@
 .pokemon-data {
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  align-items: center;
-  align-items: center;
   padding: 25px;
   font-size: 0.75rem;
   letter-spacing: 0.5px;
