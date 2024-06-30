@@ -8,8 +8,7 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  background: url(../img/background.jpg) top/cover ;
-  background-attachment: scroll;  
+  background-color: antiquewhite;  
   overflow-y: scroll;
   gap: 15px;
 }
@@ -18,15 +17,15 @@ h1 {
   border-radius: 0px 0px 20px 20px;
   text-align: center;
   letter-spacing: 4px;
-  background-color: rgba(180, 120, 180);
-  border-bottom: 4px solid rgb(0, 187, 255);
-  color: black;
+  background-color:  rgb(254, 208, 149);
+  border-bottom: 5px solid rgb(40, 40, 180);
+  color: rgb(40, 40, 180);
 }
 .main-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   margin: 0px auto;
 }
 .button-global {
@@ -35,14 +34,13 @@ h1 {
   border-radius: 7px;
   font-size: 18px;  
   letter-spacing: 1px;
-  color: black;
-  border: 2px solid rgb(0, 187, 255);
-  background-color: transparent;
+  border: 3px solid white;
+  background-color: rgb(40, 40, 180);
+  color: white;
 }
 .button-global:hover {
-  color: white;
-  border: 2px solid rgb(0, 187, 255);
-  background-color: rgba(60, 60, 60, 0.6);
+  background-color: rgb(200, 180, 240);
+  color: rgb(40, 40, 180);
 }
 ::-webkit-scrollbar {
   width: 10px;
@@ -56,4 +54,9 @@ h1 {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(85, 85, 85, 0.8); /* Cor do polegar da barra de rolagem ao passar o mouse */
+}
+footer {
+  display: flex;  
+  justify-content: center;
+  gap: 20px;
 }

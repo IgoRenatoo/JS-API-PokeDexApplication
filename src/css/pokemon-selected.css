@@ -1,11 +1,59 @@
 .pokemon-data {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 25px;
   font-size: 0.75rem;
   letter-spacing: 0.5px;
-  border: 1px solid rgb(0, 187, 255);
+  border: 3px solid rgb(0, 187, 255);
   border-radius: 10px;
   background-color: gray;
   line-height: 18px;
+  gap: 20px;
+}
+.pokemon-data.fire {
+  background-color: #f5c6c675; /* Rosado suave */
+}
+.pokemon-data.water {
+  background-color: #6ea8f375; /* Azul claro suave */
+}
+.pokemon-data.grass {
+  background-color: #bbf8a975; /* Verde claro suave */
+}
+.pokemon-data.electric {
+  background-color: #efeb7675; /* Amarelo claro suave */
+}
+.pokemon-data.psychic {
+  background-color: #F5C6E375; /* Rosa suave */
+}
+.pokemon-data.ice {
+  background-color: #97e2f575; /* Azul muito claro */
+}
+.pokemon-data.dragon {
+  background-color: #DCC6F575; /* Roxo claro */
+}
+.pokemon-data.dark {
+  background-color: #C6C6C675; /* Cinza suave */
+}
+.pokemon-data.fairy {
+  background-color: #F5E6FA75; /* Rosa muito claro */
+}
+.pokemon-data.rock {
+  background-color: #D1C7B675; /* Marrom claro suave */
+}
+.pokemon-data.ghost {
+  background-color: #C6B6D175; /* Roxo claro suave */
+}
+.pokemon-data.poison {
+  background-color: #9547c875; /* Roxo claro suave */
+}
+.pokemon-data.fighting {
+  background-color: #c8964775; /* Roxo claro suave */
+}
+.pokemon-data.bug {
+  background-color: #E0F5C675; /* Verde claro suave */
+}
+.pokemon-data.ground {
+  background-color: #56575675; /* Verde claro suave */
 }

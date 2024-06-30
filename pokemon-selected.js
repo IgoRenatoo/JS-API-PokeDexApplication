@@ -1,12 +1,13 @@
-const statusArea = document.querySelector('#statusPokemon');
+const mainContent = document.querySelector('#mainContent');
 const ID = Number(localStorage.getItem('ID'));
 const firstLetterUpper = (string) =>
   string.split('-').map((value) => value.charAt(0).toUpperCase() + value.slice(1)).join(' ');
 
 function statusPokemon(Nome, Habilidade1, Habilidade2, HP, Attack, Defense, SpecialAttack, SpecialDefense, Speed) {
   return `
-        <h3 style="color: rgb(0, 187, 255);">Pokemon ~> ${Nome} </h3>
-        <ol> <span>Habilidades</span>
+    <section id="statusPokemon" class="pokemon-data ">
+      <h3>Pokemon ~> ${Nome} </h3>
+      <ol> <span>Habilidades</span>
         <li>
           ${Habilidade1}
         </li>
@@ -22,17 +23,17 @@ function statusPokemon(Nome, Habilidade1, Habilidade2, HP, Attack, Defense, Spec
         <li>Special Defense: ${SpecialDefense} </li>
         <li>Speed: ${Speed} </li>
       </ul>
-    </section>
-    <section class="main-content">
       <img style="width: 200px;"
         src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/${ID+1}.gif" alt="">
-    <a href="./index.html">
-      <input class="button-global" type="button" value="Voltar">
-    </a>`
+      <a href="./index.html">
+        <input class="button-global" type="button" value="Voltar">
+      </a>
+    </section>`
 };
-infoApi.getAllName().then((x = []) => {
-  statusArea.innerHTML = statusPokemon(
-  firstLetterUpper(x[ID].name),  
+infoApi.getPokemons().then((x = []) => {
+  console.log(x[ID].types[0].type.name)
+  mainContent.innerHTML = statusPokemon(
+  firstLetterUpper(x[ID].name),
   firstLetterUpper(x[ID].abilities[0].ability.name),
   firstLetterUpper(x[ID].abilities[1].ability.name),
   x[ID].stats[0].base_stat,

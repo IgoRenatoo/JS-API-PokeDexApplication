@@ -1,17 +1,30 @@
+const amountPokemon = document.querySelector('#amountPokemon');
+const loadMore = document.querySelector('#loadMore');
 const listArea = document.querySelector('#listArea');
 const firstLetterUpper = (string) => string.charAt(0).toUpperCase() + string.slice(1);
-let ID;
+let offset = 0;
+let limit = 649;
 let typePokemon;
+let ID;
+
+loadMore.addEventListener('click', function(){
+  if(limit<649){
+    limit += 60;
+  }
+  loadPokemons();
+  console.log('clickou!')
+})
 
 function infoPokemon(nome, types, height, weight, i ){
-  if(types.length == 1){    
+  if(types.length == 1){
     typePokemon = `<span>Tipo: ${firstLetterUpper(types[0].type.name)} </span>`
   } else {
-    typePokemon = `<span>Tipo: ${firstLetterUpper(types[0].type.name)} </span>
-      <span>Tipo: ${firstLetterUpper(types[1].type.name)}</span>`
+    typePokemon = 
+    `<span>Tipo: ${firstLetterUpper(types[0].type.name)} </span>
+     <span>Tipo: ${firstLetterUpper(types[1].type.name)} </span>`
   }
   return `
-          <li class="pokemon-data">
+          <li class="pokemon-data ${types[0].type.name}">
           <section>
             <div >Nome: ${nome} </div>
             <div id="pokemonType" class="pokemon-type">
@@ -25,14 +38,17 @@ function infoPokemon(nome, types, height, weight, i ){
             </a>            
           </section>
           <section class="pokemon-img" >
-            <img src=" https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${i+1}.svg"
+            <img src=" https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${offset+i+1}.svg"
             alt="">
           </section>
         </li>`;
 }
+function loadPokemons(){
+  infoApi.getPokemons(offset, limit).then((listPokemons = []) => listArea.innerHTML = 
+  listPokemons.map((value, i) => infoPokemon(firstLetterUpper(value.name), value.types, value.height, value.weight, i)).join(''))
+}
+
 function saveID(id){
   ID = id.charAt(16)+id.charAt(17);
   localStorage.setItem('ID', ID)
 }
-infoApi.getAllName().then((listName = []) => listArea.innerHTML = listName.map((value, i) => 
-  infoPokemon(firstLetterUpper(value.name), value.types, value.height, value.weight,  i)).join(''))
