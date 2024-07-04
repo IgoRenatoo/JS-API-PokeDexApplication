@@ -1,12 +1,19 @@
+const firstLetterUpper = (string) => string.split('-').map((value) => value.charAt(0).toUpperCase() + value.slice(1)).join(' ');
 const listArea = document.querySelector('#listArea');
-const firstLetterUpper = (string) => string.charAt(0).toUpperCase() + string.slice(1);
-let offset = 0;
-let limit = 649;
+const amountPokemon = document.querySelector('#amountPokemon')
 let typePokemon;
 let ID;
+let offset = 0;
+let limit = 0;
+console.log(amountPokemon.value)
 
-infoApi.getPokemons(offset, limit).then((listPokemons = []) => listArea.innerHTML = 
+amountPokemon.addEventListener('change', () => {
+  limit = amountPokemon.value;
+  infoApi.getPokemons(offset, limit).then((listPokemons = []) => listArea.innerHTML = 
 listPokemons.map((value, i) => infoPokemon(firstLetterUpper(value.name), value.types, value.height, value.weight, i)).join(''))
+})
+
+
 
 function infoPokemon(nome, types, height, weight, i ){
   if(types.length == 1){
