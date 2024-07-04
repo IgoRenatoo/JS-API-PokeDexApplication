@@ -7,12 +7,13 @@ nav select, nav input {
   height: 30px;
   line-height: 25px;
   border-radius: 5px;
-  border: solid 1px white;
-  background-color: rgb(40, 40, 180);
-  color: white;
+  border: solid 1px black;
+  background-color: white;
+  color: black;
 }
 input::placeholder {
-  color: white; 
+  color: black;
+  font-size: 20px;
   opacity: 1;
 }
 .pokemon-list {
@@ -29,9 +30,9 @@ input::placeholder {
   font-weight: 500;
   line-height: 1.3;
   letter-spacing: 0.8px;
-  border: 3px solid rgb(40, 40, 180);
+  border: 3px solid black;
   border-radius: 10px;
-  background-color: rgba(180, 120, 180, 0.8);
+  background-color: rgb(215, 215, 215);
 }
 .pokemon-data.fire {
   background-color: #ec6b6b;
@@ -43,7 +44,7 @@ input::placeholder {
   background-color: #bbf8a9;
 }
 .pokemon-data.electric {
-  background-color: #efeb76;
+  background-color: #dfd925;
 }
 .pokemon-data.psychic {
   background-color: #c89647;
@@ -62,25 +63,26 @@ input::placeholder {
   background-color: #F5E6FA;
 }
 .pokemon-data.rock {
-  background-color: #D1C7B6;
+  background-color: #a6a6a6;
 }
 .pokemon-data.ghost {
-  background-color: #C6B6D1;
+  background-color: #6e3593;
+  color: white;
 }
 .pokemon-data.poison {
   background-color: #9547c8;
 }
 .pokemon-data.fighting {
-  background-color:  #F5C6E3;
+  background-color:  #bd5cb1;
 }
 .pokemon-data.bug {
-  background-color: #E0F5C6;
+  background-color: #6f731e;
 }
 .pokemon-data.ground {
-  background-color: #565756;
+  background-color: #615347;
 }
 .pokemon-data.steel {
-  background-color: #464746;
+  background-color: #343232;
   color: white;
 }
 .pokemon-type {

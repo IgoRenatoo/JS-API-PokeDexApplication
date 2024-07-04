@@ -2,6 +2,8 @@ const mainContent = document.querySelector('#mainContent');
 const ID = Number(localStorage.getItem('ID'));
 const firstLetterUpper = (string) =>
   string.split('-').map((value) => value.charAt(0).toUpperCase() + value.slice(1)).join(' ');
+let offset = 0;
+let limit = 649;
 
 function statusPokemon(Nome, Habilidade1, Habilidade2, HP, Attack, Defense, SpecialAttack, SpecialDefense, Speed) {
   return `
@@ -30,8 +32,8 @@ function statusPokemon(Nome, Habilidade1, Habilidade2, HP, Attack, Defense, Spec
       </a>
     </section>`
 };
-infoApi.getPokemons().then((x = []) => {
-  console.log(x[ID].types[0].type.name)
+infoApi.getPokemons(offset, limit).then((x = []) => {
+  console.log(x[ID].name, ID)
   mainContent.innerHTML = statusPokemon(
   firstLetterUpper(x[ID].name),
   firstLetterUpper(x[ID].abilities[0].ability.name),

@@ -1,5 +1,3 @@
-const amountPokemon = document.querySelector('#amountPokemon');
-const loadMore = document.querySelector('#loadMore');
 const listArea = document.querySelector('#listArea');
 const firstLetterUpper = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 let offset = 0;
@@ -7,13 +5,8 @@ let limit = 649;
 let typePokemon;
 let ID;
 
-loadMore.addEventListener('click', function(){
-  if(limit<649){
-    limit += 60;
-  }
-  loadPokemons();
-  console.log('clickou!')
-})
+infoApi.getPokemons(offset, limit).then((listPokemons = []) => listArea.innerHTML = 
+listPokemons.map((value, i) => infoPokemon(firstLetterUpper(value.name), value.types, value.height, value.weight, i)).join(''))
 
 function infoPokemon(nome, types, height, weight, i ){
   if(types.length == 1){
@@ -43,12 +36,7 @@ function infoPokemon(nome, types, height, weight, i ){
           </section>
         </li>`;
 }
-function loadPokemons(){
-  infoApi.getPokemons(offset, limit).then((listPokemons = []) => listArea.innerHTML = 
-  listPokemons.map((value, i) => infoPokemon(firstLetterUpper(value.name), value.types, value.height, value.weight, i)).join(''))
-}
-
 function saveID(id){
-  ID = id.charAt(16)+id.charAt(17);
+  ID = id.slice(16);
   localStorage.setItem('ID', ID)
 }
