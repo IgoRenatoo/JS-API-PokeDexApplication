@@ -1,6 +1,9 @@
 const firstLetterUpper = (string) => string.split('-').map((value) => value.charAt(0).toUpperCase() + value.slice(1)).join(' ');
 const mainContent = document.querySelector('#mainContent');
 const ID = Number(localStorage.getItem('ID'));
+const x = localStorage.getItem('x');
+
+console.log(x, ID)
 
 function statusPokemon(Nome, Habilidade1, Habilidade2, Habilidade3, HP, Attack, Defense, SpecialAttack, SpecialDefense, Speed) {
   return `

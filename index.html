@@ -34,18 +34,24 @@
 <body>
   <h1>PokeDex</h1>
   <nav>
-    <select name="" id="amountPokemon">
+    <select name="" id="amountPokemon" class="amount-pokemon">
       <option selected disabled>Exibição</option>
-      <option value="6">6</option>
-      <option value="12">12</option>
-      <option value="24">24</option>
-      <option value="48">48</option>
+      <option value="5">5</option>
+      <option value="25">25</option>
+      <option value="50">50</option>
+      <option value="100">100</option>
+      <option value="1025">Todos</option>
     </select>
+
+    <span id="btnLoadMore" class="button-global lore-more">Load More</span>
+
     <input type="search" name="" id="" placeholder="Pesquise seu Pokemon">
   </nav>
+
   <main class="main-content">
     <ol id="listArea" class="pokemon-list"></ol>
   </main>
+
 </body>
 <script src="./poke-api.js"></script>
 <script src="./index.js"></script>

@@ -7,7 +7,7 @@ nav select, nav input {
   height: 30px;
   line-height: 25px;
   border-radius: 5px;
-  border: solid 1px black;
+  border: solid 3px black;
   background-color: white;
   color: black;
 }
@@ -15,6 +15,9 @@ input::placeholder {
   color: black;
   font-size: 20px;
   opacity: 1;
+}
+.lore-more {
+  display: none;
 }
 .pokemon-list {
   display: grid;
@@ -38,7 +41,7 @@ input::placeholder {
   background-color: #ec6b6b;
 }
 .pokemon-data.water {
-  background-color: #6ea8f3d4;
+  background-color: #6ea8f3;
 }
 .pokemon-data.grass {
   background-color: #bbf8a9;

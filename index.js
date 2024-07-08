@@ -1,25 +1,51 @@
 const firstLetterUpper = (string) => string.split('-').map((value) => value.charAt(0).toUpperCase() + value.slice(1)).join(' ');
+
+const amountPokemon = document.querySelector('#amountPokemon');
+const btnLoadMore = document.querySelector('#btnLoadMore');
 const listArea = document.querySelector('#listArea');
-const amountPokemon = document.querySelector('#amountPokemon')
-let typePokemon;
-let ID;
-let offset = 0;
-let limit = 0;
-console.log(amountPokemon.value)
+
+let id = 0; //Contador ID Pokemon
+let offset = 0; //Pokemon inicial da paginação
+let limit = 0; //Limite por paginação
 
 amountPokemon.addEventListener('change', () => {
-  limit = amountPokemon.value;
-  infoApi.getPokemons(offset, limit).then((listPokemons = []) => listArea.innerHTML = 
-listPokemons.map((value, i) => infoPokemon(firstLetterUpper(value.name), value.types, value.height, value.weight, i)).join(''))
+  if(limit == 0) {
+    limit = Number(amountPokemon.value);
+    btnLoadMore.style.display = 'block';
+    infoApi.getPokemons(offset, limit).then((listPokemons = []) => listArea.innerHTML = 
+    listPokemons.map((value, i) => infoPokemon(firstLetterUpper(value.name), value.types, value.height, value.weight, i)).join(''))
+
+    if(limit == 1025){ //Esconde btn "LoreMore" ao selecionar aparição de todos.
+      btnLoadMore.style.display = 'none';
+    }
+  }else{
+    const resposta = confirm("Para alterar a exibição é necessário atualizar a página, deseja atualizar ?");
+    if (resposta) {
+      location.reload();
+    }else{ // Retornar o valor solicitado para o valor anterior.
+      amountPokemon.value = limit;        
+    }
+  }
 })
-
-
-
+btnLoadMore.addEventListener('click', () => {
+  offset += limit;
+  if(offset < 1025 && limit > 0) { //Limit > 0 obriga a seleção de exibição.
+    if(offset >= 1000){
+      btnLoadMore.style.display = 'none';
+      limit = 1025 - offset;
+    }
+    infoApi.getPokemons(offset, limit).then((listPokemons = []) => listArea.innerHTML = 
+    listPokemons.map((value, i) => infoPokemon(firstLetterUpper(value.name), value.types, value.height, value.weight, i)).join(''))
+  }else{
+    alert('Seleciona a quantidade a ser exibida!')
+  }
+})
 function infoPokemon(nome, types, height, weight, i ){
+  id++;
   if(types.length == 1){
-    typePokemon = `<span>Tipo: ${firstLetterUpper(types[0].type.name)} </span>`
+    var typePokemon = `<span>Tipo: ${firstLetterUpper(types[0].type.name)} </span>`
   } else {
-    typePokemon = 
+    var typePokemon = 
     `<span>Tipo: ${firstLetterUpper(types[0].type.name)} </span>
      <span>Tipo: ${firstLetterUpper(types[1].type.name)} </span>`
   }
@@ -31,19 +57,19 @@ function infoPokemon(nome, types, height, weight, i ){
               ${typePokemon}
               <span>Altura: ${height*8} cm </span>
               <span span>Peso: ${weight} KG </span>
-              <span>ID: ${i} </span>
+              <span>ID: ${id} </span>
             </div>            
             <a href="./pokemon-selected.html">
-              <input id="pokemonSelection${i}" class="button-global" type="button" onclick="saveID(this.id)" value="Selecionar">
+              <input id="pokemonSelection${id-1}" class="button-global" type="button" onclick="saveID(this.id)" value="Selecionar">
             </a>            
           </section>
           <section class="pokemon-img" >
-            <img src=" https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${offset+i+1}.svg"
+            <img src=" https://repositorio.sbrauble.com/arquivos/up/pokedex/${offset+i+1}.svg "
             alt="">
           </section>
         </li>`;
 }
-function saveID(id){
-  ID = id.slice(16);
-  localStorage.setItem('ID', ID)
+function saveID(thisID){
+  id = thisID.slice(16);
+  localStorage.setItem('ID', id);
 }

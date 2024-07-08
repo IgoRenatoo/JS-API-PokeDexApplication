@@ -41,6 +41,7 @@ h1 {
 .button-global:hover {
   background-color: grey;
   color: black;
+  cursor: pointer;
 }
 ::-webkit-scrollbar {
   width: 10px;
@@ -49,11 +50,11 @@ h1 {
   background: rgb(114, 50, 190); /* Cor do fundo da barra de rolagem */
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(136, 136, 136, 0.4); /* Cor do polegar da barra de rolagem */
+  background: white; /* Cor do polegar da barra de rolagem */
   border-radius: 10px; /* Raio de borda para o polegar */
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(85, 85, 85, 0.8); /* Cor do polegar da barra de rolagem ao passar o mouse */
+  background: rgb(170, 170, 170); /* Cor do polegar da barra de rolagem ao passar o mouse */
 }
 footer {
   display: flex;  
