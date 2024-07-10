@@ -3,21 +3,24 @@ const firstLetterUpper = (string) => string.split('-').map((value) => value.char
 const amountPokemon = document.querySelector('#amountPokemon');
 const btnLoadMore = document.querySelector('#btnLoadMore');
 const listArea = document.querySelector('#listArea');
+const searchField = document.querySelector('#searchField');
 
-let id = 0; //Contador ID Pokemon
 let offset = 0; //Pokemon inicial da paginação
 let limit = 0; //Limite por paginação
+let allPokemons = []; // Armazenar todos os Pokémons carregados
 
 amountPokemon.addEventListener('change', () => {
   if(limit == 0) {
     limit = Number(amountPokemon.value);
     btnLoadMore.style.display = 'block';
-    infoApi.getPokemons(offset, limit).then((listPokemons = []) => listArea.innerHTML = 
-    listPokemons.map((value, i) => infoPokemon(firstLetterUpper(value.name), value.types, value.height, value.weight, i)).join(''))
-
     if(limit == 1025){ //Esconde btn "LoreMore" ao selecionar aparição de todos.
       btnLoadMore.style.display = 'none';
     }
+    infoApi.getPokemons(offset, limit).then((listPokemons = []) => {
+     allPokemons = listPokemons;
+      listArea.innerHTML = listPokemons.map((value) => 
+        infoPokemon(firstLetterUpper(value.name), value.types, value.height, value.weight, value.id)).join('')
+  })
   }else{
     const resposta = confirm("Para alterar a exibição é necessário atualizar a página, deseja atualizar ?");
     if (resposta) {
@@ -27,21 +30,8 @@ amountPokemon.addEventListener('change', () => {
     }
   }
 })
-btnLoadMore.addEventListener('click', () => {
-  offset += limit;
-  if(offset < 1025 && limit > 0) { //Limit > 0 obriga a seleção de exibição.
-    if(offset >= 1000){
-      btnLoadMore.style.display = 'none';
-      limit = 1025 - offset;
-    }
-    infoApi.getPokemons(offset, limit).then((listPokemons = []) => listArea.innerHTML = 
-    listPokemons.map((value, i) => infoPokemon(firstLetterUpper(value.name), value.types, value.height, value.weight, i)).join(''))
-  }else{
-    alert('Seleciona a quantidade a ser exibida!')
-  }
-})
-function infoPokemon(nome, types, height, weight, i ){
-  id++;
+
+function infoPokemon(nome, types, height, weight, id){  
   if(types.length == 1){
     var typePokemon = `<span>Tipo: ${firstLetterUpper(types[0].type.name)} </span>`
   } else {
@@ -60,16 +50,36 @@ function infoPokemon(nome, types, height, weight, i ){
               <span>ID: ${id} </span>
             </div>            
             <a href="./pokemon-selected.html">
-              <input id="pokemonSelection${id-1}" class="button-global" type="button" onclick="saveID(this.id)" value="Selecionar">
+              <input id="pokemonSelection${id}" class="button-global" type="button" onclick="saveID(this.id)" value="Selecionar">
             </a>            
           </section>
           <section class="pokemon-img" >
-            <img src=" https://repositorio.sbrauble.com/arquivos/up/pokedex/${offset+i+1}.svg "
+            <img src=" https://repositorio.sbrauble.com/arquivos/up/pokedex/${id}.svg "
             alt="">
           </section>
         </li>`;
 }
+
+btnLoadMore.addEventListener('click', () => {
+  offset += limit;
+  if(offset < 1025 && limit > 0) { //Limit > 0 obriga a seleção de exibição.
+    if(offset >= 1000){
+      limit = 1025 - offset;
+      btnLoadMore.style.display = 'none';
+    }
+    infoApi.getPokemons(offset, limit).then((listPokemons = []) => listArea.innerHTML = 
+    listPokemons.map((value) => infoPokemon(firstLetterUpper(value.name), value.types, value.height, value.weight, value.id)).join(''))
+  }
+})
+
+searchField.addEventListener('input', function() {
+  const searchData = searchField.value.toLowerCase();
+  const filteredData = allPokemons.filter(pokemon => pokemon.name.toLowerCase().includes(searchData));
+  listArea.innerHTML = filteredData.map((value) => 
+    infoPokemon(firstLetterUpper(value.name), value.types, value.height, value.weight, value.id)).join('');
+});
+
 function saveID(thisID){
-  id = thisID.slice(16);
+  id = thisID.slice(16)-1;
   localStorage.setItem('ID', id);
 }

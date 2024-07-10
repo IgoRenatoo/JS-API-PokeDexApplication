@@ -1,43 +1,9 @@
 const firstLetterUpper = (string) => string.split('-').map((value) => value.charAt(0).toUpperCase() + value.slice(1)).join(' ');
 const mainContent = document.querySelector('#mainContent');
 const ID = Number(localStorage.getItem('ID'));
-const x = localStorage.getItem('x');
 
-console.log(x, ID)
-
-function statusPokemon(Nome, Habilidade1, Habilidade2, Habilidade3, HP, Attack, Defense, SpecialAttack, SpecialDefense, Speed) {
-  return `
-    <section id="statusPokemon" class="pokemon-data ">
-      <h3>Pokemon ~> ${Nome} </h3>
-      <ol> <span>Habilidades</span>
-        <li>
-          ${Habilidade1}
-        </li>
-        <li>
-          ${Habilidade2}
-        </li>
-        <li>
-          ${Habilidade3}
-        </li>
-      </ol>
-      <ul> <span>Atributos</span>
-        <li>HP: ${HP} </li>
-        <li>Attack: ${Attack} </li>
-        <li>Defense: ${Defense} </li>
-        <li>Special Attack: ${SpecialAttack} </li>
-        <li>Special Defense: ${SpecialDefense} </li>
-        <li>Speed: ${Speed} </li>
-      </ul>
-      <img style="width: 200px;"
-        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/${ID+1}.gif" alt="">
-      <a href="./index.html">
-        <input class="button-global" type="button" value="Voltar">
-      </a>
-    </section>`
-};
-infoApi.getPokemons(offset = 0, limit = 649).then((x = []) => {
-  console.log(x[ID].name, ID, x[ID].abilities.length)
-  noAbility = 'Não habilitado';
+infoApi.getPokemons(offset = 0, limit = 200).then((x = []) => {  
+  let noAbility = 'Não habilitado';
   if(x[ID].abilities.length == 1) {    
     mainContent.innerHTML = statusPokemon(
       firstLetterUpper(x[ID].name),
@@ -81,3 +47,28 @@ infoApi.getPokemons(offset = 0, limit = 649).then((x = []) => {
       )
   }
 });
+
+function statusPokemon(Nome, Habilidade1, Habilidade2, Habilidade3, HP, Attack, Defense, SpecialAttack, SpecialDefense, Speed) {
+  return `
+    <section id="statusPokemon" class="pokemon-data ">
+      <h3>Pokemon ~> ${Nome} </h3>
+      <ol> <span>Habilidades</span>
+        <li> ${Habilidade1} </li>
+        <li> ${Habilidade2} </li>
+        <li> ${Habilidade3} </li>
+      </ol>
+      <ul> <span>Atributos</span>
+        <li>HP: ${HP} </li>
+        <li>Attack: ${Attack} </li>
+        <li>Defense: ${Defense} </li>
+        <li>Special Attack: ${SpecialAttack} </li>
+        <li>Special Defense: ${SpecialDefense} </li>
+        <li>Speed: ${Speed} </li>
+      </ul>
+      <img style="width: 200px;"
+        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/${ID+1}.gif" alt="">
+      <a href="./index.html">
+        <input class="button-global" type="button" value="Voltar">
+      </a>
+    </section>`
+};
