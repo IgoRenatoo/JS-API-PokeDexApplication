@@ -53,7 +53,7 @@ function infoPokemon(nome, types, height, weight, id) {
           <span>Peso: ${weight} KG</span>
           <span>ID: ${id}</span>
         </div>
-        <a href=".././src/Selected/pokemon-selected.html">
+        <a href="https://igorenatoo.github.io/JS-API-PokeDexApplication/src/Selected/pokemon-selected.html">
           <input id="pokemonSelection${id}" class="button-global" type="button" onclick="saveID(this.id)" value="Selecionar">
         </a>            
       </section>
