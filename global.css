@@ -9,7 +9,7 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  background: linear-gradient(45deg, #B3EBFF, #FBC2EB);
+  background: linear-gradient(90deg, #B3EBFF, #FBC2EB);
   overflow-y: scroll;
   gap: 15px;
 }
