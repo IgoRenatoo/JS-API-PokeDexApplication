@@ -1,0 +1,59 @@
+.pokemon-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 20px;
+  font-size: 1rem; /* Aumentado para melhor legibilidade */
+  letter-spacing: 0.5px;
+  border: 2px solid #00aaff;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  line-height: 1.5; /* Aumentado para melhor legibilidade */
+  gap: 15px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pokemon-data:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Sombra mais pronunciada */
+}
+
+.pokemon-data h3 {
+  font-size: 1.5rem; /* Título maior */
+}
+
+div {
+  width: 100%;
+  text-align: left;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  margin: 10px 0; /* Espaçamento entre os itens da lista */
+  padding: 5px;
+  border: 1px solid #00aaff; /* Borda para as habilidades e atributos */
+  border-radius: 8px;
+  background-color: #f0f0f0; /* Fundo branco para contraste */
+  box-shadow: 0 4px 6px rgb(0, 170, 255, 0.6);
+}
+
+.pokemon-data.fire { background-color: #ffb3b3; }
+.pokemon-data.water { background-color: #99ccff; }
+.pokemon-data.grass { background-color: #c0f0b0; }
+.pokemon-data.electric { background-color: #fff599; }
+.pokemon-data.psychic { background-color: #f5cbaa; }
+.pokemon-data.ice { background-color: #c1efff; }
+.pokemon-data.dragon { background-color: #e6ccff; }
+.pokemon-data.dark { background-color: #2e2e2e; color: #f0f0f0; }
+.pokemon-data.fairy { background-color: #f8e0ff; }
+.pokemon-data.rock { background-color: #cccccc; }
+.pokemon-data.ghost { background-color: #874b9e; color: white; }
+.pokemon-data.poison { background-color: #b884dc; }
+.pokemon-data.fighting { background-color: #e5a2cc; }
+.pokemon-data.bug { background-color: #818c36; }
+.pokemon-data.ground { background-color: #8e6e5d; }
+.pokemon-data.steel { background-color: #595959; color: white; }
