@@ -22,9 +22,9 @@ A PokeDex é uma aplicação que permite aos usuários visualizar informações 
 - [Funcionalidades](#-funcionalidades)
 - [Pendências](#-pendências)
 - [Contribuição](#-contribuição)
-- [Conclusão](#-conclusão)
 - [Informações Adicionais](#-informações-adicionais)
 - [Licença](#-licença)
+- [Conclusão](#-conclusão)
 
 ## ✅ Conceitos Aprendidos 
 
@@ -45,10 +45,10 @@ A PokeDex é uma aplicação que permite aos usuários visualizar informações 
 Para começar a usar este projeto, siga as etapas abaixo no seu terminal:
 
 1. Faça um fork do repositório:
-   <pre>git fork https://github.com/IgoRenatoo/JS-API-PokeDexApplication .git</pre>
+   <pre>git fork https://github.com/IgoRenatoo/JS-API-PokeDexApplication.git</pre>
 
 2. Clone o seu fork para sua máquina:
-   <pre>git clone https://github.com/IgoRenatoo/JS-API-PokeDexApplication .git</pre>
+   <pre>git clone https://github.com/IgoRenatoo/JS-API-PokeDexApplication.git</pre>
 
 3. Acesse o diretório do projeto:
    <pre>cd JS-API-PokeDexApplication </pre>
@@ -84,7 +84,7 @@ Para usar o projeto, siga os passos abaixo:
 
 ## ⏳ Pendências
 
-Atualmente, o código está completo mas com alguns bugs. No entanto, melhorias podem ser feitas na interface e na experiência do usuário.
+Atualmente, o código está completo, mas com alguns bugs. No entanto, melhorias podem ser feitas na interface e na experiência do usuário.
 
 ## 🤝 Contribuição 
 
