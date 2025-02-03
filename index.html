@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Slogan da page -->
+  <!-- Icon da page -->
   <link rel="icon" sizes="32x32" href="./src/Assets/images/pokemon-fiveicon.png" type="image/png">
 
   <!-- Padronização Normalize -->
@@ -13,12 +13,7 @@
     integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- Estilização Fontes -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playwrite+FR+Moderne:wght@100..400&display=swap"
-    rel="stylesheet">
-
+  <!-- Estilização Fontes (Roboto)-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -27,33 +22,21 @@
 
   <!-- Estilização CSS -->
   <link rel="stylesheet" href="./global.css">
-  <link rel="stylesheet" href="./src/Index/index.css">
 </head>
 <body>
-  <h1>PokeDex</h1>
-  <nav>
-    <div style="display: flex; flex-direction: column; justify-content: center; transform: translateY(-10px);text-align: center; color: #007bff;">
-      <label for="amountPokemon">Quantidade a ser exibida</label>
-      <select name="" id="amountPokemon" class="amount-pokemon">
-        <option selected disabled>Exibir</option>
-        <option value="5">5</option>
-        <option value="25">25</option>
-        <option value="50">50</option>
-        <option value="100">100</option>
-        <option value="1025">Todos</option>
-      </select>
-    </div>   
-    <button id="btnLoadMore" class="lore-more">Carregar Pokemons</button>
-    <div style="display: flex; flex-direction: column; justify-content: center; transform: translateY(-10px);text-align: center; color: #007bff;">
-      <label for="searchField">Pesquise pelo nome</label>
-      <input type="search" id="searchField" placeholder="Pesquise aqui...">
-    </div>
-  </nav>
-  <main class="main-content">
-    <ol id="listArea" class="pokemon-list"></ol>
-  </main>
+  <header>
+    <img src="./src/assets/images/banner-pokedex.jpg" alt="Banner Pokedex">
+    <nav class="navbar">
+      <button>Página Inicial</button>
+      <button>Pokedex</button>
+      <button>Conta</button>
+      <button>Suporte</button>
+    </nav>]
+  </header>
+  <main></main>
+  <footer>
+    <p>PokedexApp - 2024 - Todos os Direitos Reservados.</p>
+    <p><a class="link-acess" href="">Políticas de Privacidade</a></p>
+  </footer>  
 </body>
-  <script src="./src/API/poke-api.js"></script>
-  <script src="./src/Index/index.js"></script>
-  <script src="./src/Selected/pokemon-selected.js"></script>
 </html>
