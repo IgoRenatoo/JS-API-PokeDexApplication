@@ -1,0 +1,26 @@
+.support-container {
+  max-width: 80%;
+  min-height: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background: var(--background-color);
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.text-support {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: var(--text-color);
+}
+
+ul {
+  list-style: none;
+}
+ul li {
+  margin: 10px 0;
+  font-size: 16px;
+}
+ul li strong {
+  color: var(--standard2);
+}

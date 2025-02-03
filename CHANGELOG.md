@@ -10,3 +10,4 @@
 
 ### Pendência de implementação
 [ ] Validação de dados no cadastro.
+[ ] Adicionar explicação da aplicação em `Suporte`
