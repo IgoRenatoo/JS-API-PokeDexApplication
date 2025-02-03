@@ -1,0 +1,13 @@
+{
+  "name": "js-api-pokedexapplication",
+  "version": "1.0.0",
+  "description": "A PokeDex é uma aplicação que permite aos usuários visualizar informações sobre diversos Pokémon, incluindo nome, tipo, altura e peso. O objetivo é proporcionar uma interface interativa e agradável para explorar o mundo dos Pokémon.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "css": "npx stylelint **/*.css"
+  },
+  "devDependencies": {
+    "stylelint-order": "^6.0.4"
+  }
+}
