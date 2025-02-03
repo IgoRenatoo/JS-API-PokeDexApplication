@@ -8,11 +8,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto';
 }
 
 /* Header and NavBar */
 header img{
+  display: block;
   width: 100%;
   height: 300px;
   object-fit: cover;
@@ -24,32 +25,33 @@ header img{
   padding: 10px;
   border-bottom: 2px solid var(--standard2);
   background-color: var(--standard1);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
 }
-.navbar button {
+.navbar a {
   padding: 10px;
-  border: none;
   border-radius: 8px;
-  font-family: 'Roboto';
   font-size: 16px;
   background-color: var(--standard1);
   color: var(--text-color);
   transition: all 0.3s ease-in-out;
+  text-decoration: none;
   cursor: pointer;
   outline: none;
 }
-.navbar button:hover {  
+.navbar a:hover {
   background-color: var(--standard2);
   color: #fff;
   transform: scale(1.03);
 }
-.navbar button:active {
+.navbar a:active {
   transform: scale(0.98);
   background-color: #b30000;
 }
 
 main {
-  min-height: 400px
+  max-width: 80%;
+  min-height: 400px;
+  margin: 10px auto;
 }
 
 /* Footer */
@@ -58,7 +60,7 @@ footer {
   width: 100%;
   padding: 10px;
   border-top: 2px solid var(--standard2);
-  background-color: var(--standard1); /* Amarelo Pikachu */
+  background-color: var(--standard1);
   color: var(--text-color);
 }
 .link-acess {
