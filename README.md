@@ -2,14 +2,20 @@
 
 ## 💻 Descrição do projeto
 
-A PokeDex é uma aplicação que permite aos usuários visualizar informações sobre diversos Pokémon, incluindo nome, tipo, altura e peso. O objetivo é proporcionar uma interface interativa e agradável para explorar o mundo dos Pokémon.
+A PokeDex é uma aplicação que permite aos usuários visualizar informações sobre diversos Pokémon, incluindo nome, tipo, altura e peso.
+
+O objetivo é proporcionar uma interface interativa e agradável para explorar o mundo dos Pokémon.
 
 > **Colaboração:** Not found  
 > **Status:** <span> Concluído  ✔️ 
 
-<div width="200px" align="center">
-  <p> 👀 Prévia </p>
-  <img src="./src/Assets/images/previa.png" alt="Prévia do projeto" width="600px">
+<div width="200px" display="flex" align="center">
+  <p>Primeira Versão do Projeto - 06/2024</p>
+  <img src="./src/assets/preview/1preview.png" alt="Prévia do projeto" width="200px">
+  <p>Segunda Versão do Projeto - 10/2024</p>
+  <img src="./src/assets/preview/2preview.png" alt="Prévia do projeto" width="200px">
+  <p>Terceira Versão do Projeto - 02/2025</p>
+  <img src="./src/assets/preview/3preview.png" alt="Prévia do projeto" width="200px">
 </div>
 
 ## 📜 Índice
@@ -56,35 +62,35 @@ Para começar a usar este projeto, siga as etapas abaixo no seu terminal:
 4. Instale a extensão Live Server:
    <pre> code --install-extension ritwickdey.LiveServer </pre>
 
-
 ## 🚀 Uso 
 
 Para usar o projeto, siga os passos abaixo:
 
 1. Execute o comando ```ALT+L ALT+O``` para abrir o arquivo HTML no seu navegador.
 
-2. Utilize a interface para interagir com os Pokémon disponíveis.
-
-      Você pode acessar as seguintes funcionalidades:
-
-         - Selecione a quantidade de Pokémon a ser exibida.
-
-         - Pesquise pelo nome do Pokémon desejado.
-
 ## 🧩 Funcionalidades
 
-1. **Carregar Pokémon()**
-   - Carrega uma quantidade de Pokémon a ser exibida na lista, baseado na seleção do usuário.
+1. **Carregar Pokémon (Com Paginação)**
+Carrega uma quantidade de Pokémon e exibe na tela com base na seleção do limite (limite por página). O número de Pokémon carregados pode ser ajustado pelo valor da variável `limit`.
+   - Quando a página é carregada, o código faz uma requisição à API para obter uma lista de Pokémon com base no `offset` e `limit`. Os Pokémon são carregados em blocos e exibidos na tela. A cada clique no botão "Próximo" ou "Anterior", a lista de Pokémon é atualizada de acordo com a página selecionada.
 
-2. **Pesquisar Pokémon()**
-   - Permite ao usuário pesquisar Pokémon pelo nome, filtrando a lista exibida.
+2. **Exibição de Tipos de Pokémon**
+Cada Pokémon é exibido com base nos seus tipos. Cada tipo de Pokémon tem uma cor de fundo específica, facilitando a visualização do seu tipo diretamente na interface.
+   - Para cada Pokémon, a classe CSS correspondente ao tipo é adicionada dinamicamente ao elemento que contém o Pokémon. Isso permite uma personalização visual, como a mudança de cor de fundo conforme o tipo do Pokémon (ex.: fire, water, grass, etc.).
 
-3. **Selecionar Pokémon()**
-   - Leva o usuário para a página de detalhes do Pokémon selecionado.
+3. **Paginação de Pokémon**
+A lista de Pokémon é paginada. O usuário pode navegar entre as páginas clicando nos botões "Próximo" e "Anterior". Cada página exibe uma quantidade limitada de Pokémon, determinada pela variável `limit`.
+   - A navegação é controlada pelos botões que alteram o valor de `offset`, que controla a página atual. A função `loadNextPage` aumenta o `offset` para carregar a próxima página de Pokémon, e a função `loadPreviousPage` diminui o `offset` para carregar a página anterior.
 
 ## ⏳ Pendências
 
-Atualmente, o código está completo, mas com alguns bugs. No entanto, melhorias podem ser feitas na interface e na experiência do usuário.
+- [ ] Validação de dados no cadastro
+- [ ] Adicionar explicação da aplicação em `Suporte`
+- [ ] Adicionar atributos aos Pokemons
+- [ ] Adicionar opção de selecionar Pokemon em sua conta com limite de 5 pokemons
+- [ ] Implementar toda estrutura de `Bag`
+- [ ] Ao acessar aba `Conta` exibir lista pokemons do usuário
+- [ ] Implementar exclusão de pokemon da lista
 
 ## 🤝 Contribuição 
 

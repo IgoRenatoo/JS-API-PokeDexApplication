@@ -22,6 +22,7 @@
 
   <!-- Estilização CSS -->
   <link rel="stylesheet" href="../../../global.css">
+  <link rel="stylesheet" href="./pokedex-app.css">
 </head>
 <body>
   <header>
@@ -34,12 +35,20 @@
     </nav>
   </header>
   
-  <main id="pokedex-area">    
+  <main>
+    <section id="pokedexContainer" class="pokedex-container">
+      <!-- Os Pokémons serão carregados aqui -->
+    </section>
+    <div id="paginationPokemons" class="pagination-pokemons">
+      <button id="prevBtn">Página Anterior</button>
+      <button id="nextBtn">Próxima Página</button>
+    </div>
   </main>
   
   <footer>
     <p>PokedexApp - 2024 - Todos os Direitos Reservados.</p>
     <p><a class="link-acess" href="">Políticas de Privacidade</a></p>
   </footer>
+  <script type="module" src="./pokedex-app.js"></script>
 </body>
 </html>
