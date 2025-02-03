@@ -1,0 +1,56 @@
+.register-container {
+  text-align: center;
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+h2 {
+  margin-bottom: 20px;
+  color: var(--standard2);
+}
+.form-group {
+  text-align: left;
+  margin-bottom: 15px;
+}
+label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+}
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: var(--standard2);
+  color: white;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #b30000;
+}
+
+.login-options {
+  margin-top: 20px;
+}
+.login-options a {
+  font-weight: 500;
+  color: var(--standard2);
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+.login-options a:hover {
+  color: #b30000;
+}
